@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import { useState } from "react";
 import { RiCloseLargeLine, RiMenuUnfoldFill } from "react-icons/ri";
 import Link from '../link/Link';
 
@@ -14,7 +15,7 @@ const NavBar = () => {
       ];
     return (
         <nav>
-            <div onClick={()=>setOpen(!open)} className='text-2xl text-green-200 md:hidden'>
+            <div onClick={()=>setOpen(!open)} className='text-2xl py-2 bg-green-800 text-white-200 md:hidden'>
                 {open===true?
                <RiCloseLargeLine />
                 :<RiMenuUnfoldFill />}
@@ -23,7 +24,9 @@ const NavBar = () => {
             </div>
 
             
-               <ul className='md:flex'> {routes.map(route=><Link key={route.id} route={route}></Link>)}</ul>
+               <ul className={`bg-green-900 duration-1000
+               ${open?'top-10':'-top-44'}
+                 text-center ml-1 rounded-md md:flex absolute md:static`}> {routes.map(route=><Link key={route.id} route={route}></Link>)}</ul>
             
         </nav>
     );
